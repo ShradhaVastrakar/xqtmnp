@@ -1,8 +1,5 @@
 pipeline {
-    agent {
-        label 'goa-dev'
-    }
-
+    agent any
     options {
         skipDefaultCheckout(true)
     }
