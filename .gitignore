@@ -1,20 +1,4 @@
-# dependencies / build output
-node_modules/
-dist/
-.venv/
 __pycache__/
-*.pyc
-.pytest_cache/
-
-# secrets and local config
-.env
-.env.*
-!.env.example
-
-# locally generated data (Elexon cache)
+.venv/
 .cache/
-
-# misc
-.DS_Store
-npm-debug.log*
-*.tsbuildinfo
+.pytest_cache/

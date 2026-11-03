@@ -1,32 +1,18 @@
-# Start everything:  docker compose up --build
-# Dashboard: http://localhost:${FRONTEND_PORT:-3000}   API docs: http://localhost:${BACKEND_PORT:-8000}/docs
+version: "3.8"
+
 services:
-  backend:
-    build: ./Backend
+  solar_power_backend:
+    image: solar_power_backend:latest
+    container_name: solar_power_backend
+    working_dir: /app
     ports:
-      - "${BACKEND_PORT:-8000}:8000"
-    environment:
-      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
-      DECISION_CUTOFF_TIME: ${DECISION_CUTOFF_TIME:-09:00}
-      DECISION_CUTOFF_DAYS_AHEAD: ${DECISION_CUTOFF_DAYS_AHEAD:-1}
-      HOURLY_FORECAST_FILL: ${HOURLY_FORECAST_FILL:-none}
-      CACHE_TTL_HOURS: ${CACHE_TTL_HOURS:-24}
-      CACHE_DIR: /app/.cache
-    volumes:
-      - elexon-cache:/app/.cache
+      - "4015:8000"
     restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - solar_power_network
 
-  frontend:
-    build:
-      context: ./Frontend
-      args:
-        # Resolved by the browser, so it must be reachable from the host machine.
-        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
-    ports:
-      - "${FRONTEND_PORT:-3000}:80"
-    depends_on:
-      - backend
-    restart: unless-stopped
-
-volumes:
-  elexon-cache:
+networks:
+  solar_power_network:
+    external: true
