@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --page: #f3f5f9;
+  --surface: #ffffff;
+  --ink: #0f1b2d;
+  --ink-2: #44546a;
+  --ink-3: #5d6c82;
+  --line: #dde3ec;
+  --brand: #1c4a82;
+  --teal: #0f766e;
+  --teal-soft: #e0f4f1;
+  /* Chart series (validated with the dataviz palette checker, light surface) */
+  --series-forecast: #2a78d6;
+  --series-actual: #eb6834;
+  --err-over: #d03b3b;
+  --err-under: #2a78d6;
+  --grid: #e6eaf0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0b121d;
+    --surface: #131c2b;
+    --ink: #eef2f8;
+    --ink-2: #b8c3d4;
+    --ink-3: #93a1b6;
+    --line: #26344a;
+    --brand: #7fb0ee;
+    --teal: #5eead4;
+    --teal-soft: #0f2f33;
+    --series-forecast: #3987e5;
+    --series-actual: #d95926;
+    --err-over: #e66767;
+    --err-under: #3987e5;
+    --grid: #223046;
+  }
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { @apply bg-page text-ink font-sans antialiased; margin: 0; }
+.tabular { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }

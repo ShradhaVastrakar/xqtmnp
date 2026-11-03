@@ -1,7 +1,20 @@
+# dependencies / build output
 node_modules/
-.env
+dist/
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
+
+# secrets and local config
+.env
+.env.*
+!.env.example
+
+# locally generated data (Elexon cache)
+.cache/
+
+# misc
 .DS_Store
 npm-debug.log*
+*.tsbuildinfo
