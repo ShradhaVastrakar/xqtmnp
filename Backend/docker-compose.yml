@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  solar_power_backend:
+    image: solar_power_backend:latest
+    container_name: solar_power_backend
+    working_dir: /app
+    ports:
+      - "4015:8000"
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - solar_power_network
+
+networks:
+  solar_power_network:
+    external: true
