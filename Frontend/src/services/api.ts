@@ -1,7 +1,7 @@
 import type { AnalysisResponse, ForecastMode, ForecastsResponse, Metadata } from "../types";
 
 // Centralised API configuration: the backend URL comes from the build-time environment.
-export const API_BASE_URL = (import.meta.env.VITE_API_URL ?? "http://localhost:8000").replace(/\/+$/, "");
+export const API_BASE_URL = (import.meta.env.VITE_API_URL ?? "https://int-sol-back.khelo.tech").replace(/\/+$/, "");
 
 export class ApiError extends Error {
   constructor(message: string, public status?: number) {

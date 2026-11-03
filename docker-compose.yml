@@ -21,7 +21,8 @@ services:
       context: ./Frontend
       args:
         # Resolved by the browser, so it must be reachable from the host machine.
-        VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
+        VITE_API_URL: ${VITE_API_URL:-https://int-sol-back.khelo.tech
+}
     ports:
       - "${FRONTEND_PORT:-3000}:80"
     depends_on:

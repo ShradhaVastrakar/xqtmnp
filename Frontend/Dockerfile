@@ -5,7 +5,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
 # The API URL is baked in at build time (it is called from the user's browser).
-ARG VITE_API_URL=http://localhost:8000
+ARG VITE_API_URL=https://int-sol-back.khelo.tech
 ENV VITE_API_URL=$VITE_API_URL
 RUN npm run build
 
