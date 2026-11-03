@@ -47,8 +47,11 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=get_settings().cors_origin_list,
-    allow_methods=["GET"],
+    allow_origins=[
+        "https://courageous-gumdrop-a07e39.netlify.app",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 app.include_router(router)
